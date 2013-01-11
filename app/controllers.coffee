@@ -14,3 +14,6 @@ App.SwapsController = Em.Controller.extend
     # TODO figure out how to group these into rows of three
     #console.log 'here', @get('swaps')
   ).property('swaps')
+
+App.SwapController = Em.ObjectController.extend
+  content: null

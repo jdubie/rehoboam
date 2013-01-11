@@ -18,5 +18,5 @@ App.SwapsRoute = Em.Route.extend
     controller.set('swaps', App.store.findAll(App.Swap))
 
 App.SwapRoute = Em.Route.extend
-  setupControllers: (controller) ->
-    #controller.set('content', App.CurrentUser)
+  setupControllers: (controller, swap) ->
+    controller.set('content', swap)
