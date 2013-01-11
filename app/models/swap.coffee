@@ -1,3 +1,3 @@
-App.Example = DS.Model.extend
+App.Swap = DS.Model.extend
   _id   : DS.attr 'string'
   ctime : DS.attr 'date'
