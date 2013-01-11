@@ -4,3 +4,323 @@
 @media (min-width: 980px) {
   div.container.root { padding-top: 40px; }
 }
+
+@baseFontFamily: Muli, sans-serif;
+
+// colors
+@primaryColorDark: #1aa99f;
+@primaryColor: #36afa7; // attention
+@baseColor: #6d6f72; // grey
+@secondaryColor: #f89920; // orange
+@attentionColor: @secondaryColor;
+
+/* signup modal */
+//.modal form.signup .prepopulate-wrap {
+//.prepopulate-wrap {
+//  text-align: center;
+//  vertical-align: middle;
+//  display: table-cell;
+//  height: 18em;
+//  width: 140px;
+
+/* for links w/o href to show pointer (hand) */
+a.link {
+  cursor: pointer;
+}
+
+.center {
+  text-align: center;
+}
+
+.vcenter {
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.h11 {
+  margin-top: 4em; // HACK: should use vcenter
+}
+
+/* /swaps */
+.container > .search-static-container {
+  text-align: center;
+}
+
+/* search request form */
+.search-request .header {
+  margin-bottom: 12px;
+}
+.search-request .header h3.complete {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #36afa7;
+}
+
+.categories img {
+  width: 100%
+}
+.categories p {
+  margin-top: 1em;
+  margin-bottom: 0;
+}
+
+/* overwrite h1 to h6 color */
+h1, h2, h3, h4, h5, h6 {
+  color: #777;
+}
+
+/* only applys to desktops */
+@media (min-width: 980px) { .content { margin-top: 72px; } }
+
+/* placeholder images */
+.placeholder {
+  //width: 98%;
+}
+
+/* Carousel */
+.intro-carousel {
+  margin-top: -10px;
+}
+.carousel-inner img {
+  width: 100%;
+}
+.carousel-control {
+  top: 49%;
+}
+
+/* profile picture fill well */
+.profile-picture img.thumbnail {
+  width: 96%;
+}
+
+.highlight-text {
+  color: @secondaryColor;
+}
+
+/* authenication forms */
+.modal form {
+  margin: 0;
+}
+
+@media (min-width: 480px) {
+  .authenticate.modal {
+    .span2 { width: 230px; }
+    .span3 { width: 230px; }
+  }
+}
+
+/* Background honeycomb */
+body {
+  background-color: whiteSmoke;
+  //background-image: url('/img/background-white-honeycomb.png');
+  background-repeat: repeat;
+}
+
+/* Navbar honeycomb */
+/*
+.navbar-inner {
+  background: url('/img/shadow-background-fade2.png') bottom;
+  background-repeat: repeat-x;
+  box-shadow: none;
+}
+*/
+
+/* center host explore */
+@media (min-width: 980px) { ul.nav-spaced.host-explore { /*margin-left: 10%;*/ } }
+
+.navbar .divider-vertical {
+  margin: 7px 9px;
+  border-right: 2px solid #DDD;
+  background-color: white;
+}
+
+.navbar h4 {
+  line-height: 14px;
+}
+.navbar .nav > li > a > h4 {
+  text-shadow: none;
+}
+.navbar .nav > li > a:hover > h4 {
+  color: @secondaryColor; // orange
+}
+
+.navbar.navbar-fixed-top {
+  z-index: @zindexDropdown - 5; // behind dropdown
+}
+
+#navbar-user-image img { max-height: 42px; }
+.navbar .nav li.search {
+  padding-top: 15px;
+}
+
+/* thumbnails */
+.swap-thumbnail {
+  .well {
+    padding: 16px;
+    padding-bottom: 8px;
+  }
+  .charity {
+    cusor: pointer;
+  }
+}
+
+/* ----- #/ ----- */
+.swap-tag-icon {
+  float: left;
+  width: 40px;
+  margin-top: -5px;
+}
+.swap-tag-name {
+  float: left;
+  //width: 100px;
+}
+
+
+.swap-thumbnail h5 {
+  margin-top: 6px;
+}
+
+/* wells */
+.well {
+  background-color: white;
+}
+
+
+/* ----- #/swaps/:id ------ */
+h6.subtitle { font-size: 16px }
+#swap-description p { font-size: 15px }
+#swap-description strong { font-size: 15px }
+#swap-book-module {
+  text-align: center;
+  h6 {
+    margin-top: 12px;
+  }
+}
+#swap-all {
+  div.well {
+    background-color: white;
+  }
+  div.swap-title {
+    background-color: @primaryColorDark;
+    h2 {
+      color: white;
+      padding: 2px 0px 1px 8px;
+      margin: 0;
+    }
+  }
+}
+div.swap-host {
+  text-align: center;
+  div.image {
+    max-width: 150px;
+    margin-bottom: 10px;
+    /* center */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.star-rating {
+  float: left;
+  margin: 10px 0 10px 0;
+}
+.swap-rating {
+  float: left;
+  margin: 13px 0 0 8px;
+}
+
+/* ---- "scrollspy" buttons ----- */
+#faux-scrollspy {
+  z-index: @zindexDropdown - 10; // behind dropdown
+  position: fixed;
+  top: 56px;
+  background-color: #eee;
+
+  .border-radius(4px);
+  @shadow: 0 1px 1px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+  .box-shadow(@shadow);
+
+  .divider-vertical {
+    height: 27px;
+    width: 1px;
+    margin: 6 12px;
+    overflow: hidden;
+    background-color: white;
+    border-right: 2px solid #ddd;
+  }
+
+  li > a {
+    color: @primaryColorDark;
+    font-weight: bold;
+    margin-top: 2px;
+    cursor: pointer;
+    text-shadow: none;
+  }
+
+  li > a:hover {
+    color: @secondaryColor; // orange
+  }
+}
+
+/* ---- about page ---- */
+.about.container {
+  padding-top: 50px;
+}
+.user.container {
+  padding-top: 40px;
+}
+
+.about #team img {
+  max-width: 150px;
+}
+
+/*
+ * footer
+ */
+
+/* HACK: we should get rid of this footer pad */
+.footer-pad {
+  height: 5px;
+  background: url('/img/shadow-background-fade-footer.png') top;
+}
+.content { min-height: 350px; } /* put footer on bottom */
+footer ul { list-style: none; }
+footer .nav li { float: none; }
+footer .nav li a { padding-top: 0; padding-bottom: 0; }
+footer .right { float: right }
+footer .right ul { text-align: right; }
+
+footer {
+  margin-top: 25px; margin-bottom: 0;
+  font-size: 14px;
+  li { line-height: 24px; }
+  .well { text-align: center; }
+}
+
+/* why host */
+.why-host {
+  .well { text-align: center; }
+  .well img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+}
+
+
+/* green color background w/ white text (headers) */
+div.green-background {
+  background-color: @primaryColorDark;
+  h1, h2, h3, h4, h5, h6 {
+    color: white;
+  }
+}
+
+/* centered image */
+img.centered {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}

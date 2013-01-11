@@ -1,0 +1,19 @@
+<h1>swaps</h1>
+<div class="row">
+{{#each swaps}}
+  <div class="span4">
+    <div class="swap-thumbnail">
+      <div class="well">
+        {{#linkTo 'swap' this class=thumbnail}}
+          <img {{bindAttr src="image_thumbnail"}}></img>
+        {{/linkTo}}
+        <div class="description">
+          {{#linkTo 'swap' this}}
+            <h5>{{title}}<h5>
+          {{/linkTo}}
+        </div>
+      </div>
+    </div>
+  </div>
+{{/each}}
+</div>
