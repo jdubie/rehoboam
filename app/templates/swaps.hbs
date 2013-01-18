@@ -1,19 +1,21 @@
 <h1>swaps</h1>
+{{#each row in rows}}
 <div class="row">
-{{#each swaps}}
+  {{#each row}}
   <div class="span4">
     <div class="swap-thumbnail">
       <div class="well">
-        {{#linkTo 'swap' this class=thumbnail}}
+        {{#linkTo "swap" this class=thumbnail}}
           <img {{bindAttr src="image_thumbnail"}}></img>
         {{/linkTo}}
         <div class="description">
-          {{#linkTo 'swap' this}}
+          {{#linkTo "swap" this}}
             <h5>{{title}}<h5>
           {{/linkTo}}
         </div>
       </div>
     </div>
   </div>
-{{/each}}
+  {{/each}}
 </div>
+{{/each}}

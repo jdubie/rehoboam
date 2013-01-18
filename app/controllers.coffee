@@ -8,12 +8,17 @@ App.ApplicationController = Em.Controller.extend
 App.ProfileController = Em.ObjectController.extend
   content: null
 
-App.SwapsController = Em.Controller.extend
-  swaps: null
+App.SwapsController = Em.ArrayController.extend
   rows: (() ->
-    # TODO figure out how to group these into rows of three
-    #console.log 'here', @get('swaps')
-  ).property('swaps')
+    rows = []
+    numPerRow = 3
+    @forEach (swap, index, obj) ->
+      console.log 'swap, index', swap, index
+      if index % numPerRow is 0
+        rows.push []
+      rows[rows.length-1].push swap
+    rows
+  ).property('content.@each')
 
 App.SwapController = Em.ObjectController.extend
   content: null
