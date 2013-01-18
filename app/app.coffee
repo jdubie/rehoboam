@@ -8,6 +8,7 @@ App.store = DS.Store.create
   adapter: DS.RESTAdapter.create
     bulkCommit: false
     plurals:
+      auth: 'auth'
       entity: 'entities'
     serializer: DS.JSONSerializer.extend
       primaryKey: (type) -> '_id'

@@ -24,8 +24,20 @@
           </li>
         </ul>
         <ul class="nav nav-spaced pull-right">
-          <ul class="nav search"></ul>
-          <ul class="nav current-user"></ul>
+          <ul class="nav search">
+            <li class="search">
+              <input type="text" class="span2" placeholder="Search" name="query"></input>
+            </li>
+          </ul>
+          <ul class="nav">
+            {{#if App.auth.isLoggedIn}}
+              <li><h4>Hi!!</h4></li>
+            {{else}}
+              <li><h4>Login</h4></li>
+              <li class="divider-vertical"></li>
+              <li><h4>About</h4></li>
+            {{/if}}
+          </ul>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
