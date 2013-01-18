@@ -31,7 +31,7 @@
           </ul>
           <ul class="nav">
             {{#if App.auth.isLoggedIn}}
-              <li><h4>Hi!!</h4></li>
+            <li><h4>Hi {{App.auth.user.first_name}}!</h4></li>
             {{else}}
               <li><h4>Login</h4></li>
               <li class="divider-vertical"></li>

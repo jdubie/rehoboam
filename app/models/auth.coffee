@@ -1,6 +1,6 @@
 App.Auth = DS.Model.extend
   _id   : DS.attr('string', defaultValue: 'auth')
-  user_id: DS.attr('string', defaultValue: null)
+  user  : DS.belongsTo 'App.User'
   roles : DS.attr('array', defaultValue: [])
   # for login
   email: DS.attr 'string'
@@ -20,16 +20,16 @@ App.Auth = DS.Model.extend
     App.store.commit()
 
   isLoggedIn: Ember.computed ->
-    @get('user_id')?
-  .property 'user_id'
+    @get('user')?
+  .property 'user'
   isAdmin: Ember.computed ->
     roles = @get('roles') ? []
     'constable' in roles
   .property 'roles'
 
-  didLoad  : -> console.log "didLoad Auth:"  , @get('user_id')
-  didUpdate: -> console.log "didUpdate Auth:", @get('user_id')
-  didCreate: -> console.log "didCreate Auth:", @get('user_id')
+  didLoad  : -> console.log "didLoad Auth:"  , @get('user')
+  didUpdate: -> console.log "didUpdate Auth:", @get('user')
+  didCreate: -> console.log "didCreate Auth:", @get('user')
 
 # TODO: HACK!! to prevent "GET /model)s"
 #       https://github.com/emberjs/data/issues/355

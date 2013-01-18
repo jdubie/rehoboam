@@ -3,5 +3,6 @@
 #################################################
 
 require 'models/auth'
-require 'models/swap'
+require 'models/user'
 require 'models/entity'
+require 'models/swap'
