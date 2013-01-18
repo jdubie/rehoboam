@@ -1,4 +1,17 @@
-<h1>swaps</h1>
+<h3>
+  What kinds of LifeSwaps are you looking for?
+  Collect your favorites in your Wishlist
+</h3>
+<center>
+  {{#each filter in filters}}
+  <div class="btn-group">
+    {{#each tag in filter}}
+    <div class="btn tag" tag="{{tag}}">{{tag}}</div>
+    {{/each}}
+  </div>
+  {{/each}}
+</center>
+<br/>
 {{#each row in rows}}
 <div class="row">
   {{#each row}}

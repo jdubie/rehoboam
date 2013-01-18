@@ -9,6 +9,11 @@ App.ProfileController = Em.ObjectController.extend
   content: null
 
 App.SwapsController = Em.ArrayController.extend
+  filters: [
+    ['engineer', 'design', 'business']
+    ['startup', 'established']
+    ['task', 'tour', 'talk']
+  ]
   rows: Ember.computed ->
     rows = []
     numPerRow = 3
