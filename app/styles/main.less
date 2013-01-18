@@ -1,18 +1,26 @@
 @import "bootstrap/less/bootstrap.less";
 @import "bootstrap/less/responsive.less";
 
-@media (min-width: 980px) {
-  div.container.root { padding-top: 40px; }
-}
+// hard corners for softies like Alden
+@baseBorderRadius:      0px;
+@borderRadiusLarge:     0px;
+@borderRadiusSmall:     0px;
 
 @baseFontFamily: Muli, sans-serif;
 
 // colors
+@fontColor: #777;
 @primaryColorDark: #1aa99f;
 @primaryColor: #36afa7; // attention
 @baseColor: #6d6f72; // grey
 @secondaryColor: #f89920; // orange
 @attentionColor: @secondaryColor;
+
+// Z-index of typeahead; needs to be above modal
+@zindexTypeaheadDropdown: @zindexModal + 10;
+.typeahead.dropdown-menu {
+  z-index: @zindexTypeaheadDropdown;
+}
 
 /* signup modal */
 //.modal form.signup .prepopulate-wrap {
@@ -32,10 +40,36 @@ a.link {
   text-align: center;
 }
 
+.teal {
+  color: @primaryColor;
+}
+.teal-dark {
+  color: @primaryColorDark;
+}
+
+.stanford {
+  color: #B22222; // FireBrick
+}
+
 .vcenter {
   text-align: center;
   vertical-align: middle;
   display: table-cell;
+}
+
+div.call-to-action {
+  p {
+    color: @fontColor;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: bold;
+  }
+}
+
+@media (min-width: 768px) {
+  a.btn.cta-align {
+    margin-top: 15%;
+  }
 }
 
 .h11 {
@@ -67,11 +101,11 @@ a.link {
 
 /* overwrite h1 to h6 color */
 h1, h2, h3, h4, h5, h6 {
-  color: #777;
+  color: @fontColor;
 }
 
 /* only applys to desktops */
-@media (min-width: 980px) { .content { margin-top: 72px; } }
+@media (min-width: 980px) { .content { margin-top: 65px; } }
 
 /* placeholder images */
 .placeholder {
@@ -87,6 +121,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 .carousel-control {
   top: 49%;
+}
+
+div.banner {
+  display   : inline-block;
+  position  : relative;
+  width     : 100%;
+  margin-top: -13px;
 }
 
 /* profile picture fill well */
@@ -129,20 +170,25 @@ body {
 /* center host explore */
 @media (min-width: 980px) { ul.nav-spaced.host-explore { /*margin-left: 10%;*/ } }
 
+
 .navbar .divider-vertical {
-  margin: 7px 9px;
-  border-right: 2px solid #DDD;
+  margin          : 7px 5px;
+  border-right    : 2px solid #DDD;
   background-color: white;
 }
 
-.navbar h4 {
-  line-height: 14px;
+.navbar .nav > li > a {
+  > h4 { text-shadow: none; }
+  > h5 { text-shadow: none; }
 }
-.navbar .nav > li > a > h4 {
-  text-shadow: none;
+.navbar .nav > li > a:hover {
+  > h4 { color: @secondaryColor; } // orange
+  > h5 { color: @secondaryColor; } // orange
 }
-.navbar .nav > li > a:hover > h4 {
-  color: @secondaryColor; // orange
+
+.navbar .nav > li > a:hover.disable-hover {
+  > h4 { color: @fontColor; }
+  > h5 { color: @fontColor; }
 }
 
 .navbar.navbar-fixed-top {
@@ -159,6 +205,10 @@ body {
   .well {
     padding: 16px;
     padding-bottom: 8px;
+    a {
+      img.main { width: 100% }
+    }
+    a.thumbnail-title:hover { text-decoration: none }
   }
   .charity {
     cusor: pointer;
@@ -191,23 +241,13 @@ body {
 h6.subtitle { font-size: 16px }
 #swap-description p { font-size: 15px }
 #swap-description strong { font-size: 15px }
-#swap-book-module {
-  text-align: center;
-  h6 {
-    margin-top: 12px;
-  }
-}
-#swap-all {
-  div.well {
-    background-color: white;
-  }
-  div.swap-title {
-    background-color: @primaryColorDark;
-    h2 {
-      color: white;
-      padding: 2px 0px 1px 8px;
-      margin: 0;
-    }
+
+div.swap-title {
+  background-color: @primaryColorDark;
+  h2 {
+    color: white;
+    padding: 2px 0px 1px 8px;
+    margin: 0;
   }
 }
 div.swap-host {
@@ -221,14 +261,18 @@ div.swap-host {
   }
 }
 
+div.image-center img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .star-rating {
   float: left;
   margin: 10px 0 10px 0;
 }
-.swap-rating {
-  float: left;
-  margin: 13px 0 0 8px;
-}
+
+td.circle-image { min-width: 50px }
+th.circle-image { min-width: 50px }
 
 /* ---- "scrollspy" buttons ----- */
 #faux-scrollspy {
@@ -323,4 +367,131 @@ img.centered {
   margin-left: auto;
   margin-right: auto;
   display: block;
+}
+
+iframe#twitter-widget-0 {
+  width: 100%;
+}
+
+div.stanford-image {
+  position: relative;
+  img {
+    width     : 100%;
+    margin-top: -15px;
+  }
+  div.stanford-text {
+    position: absolute;
+    top     : 0px;
+    width   : 100%;
+    display : block;
+  }
+}
+
+// takes a lot of the bootstrap h5 style attributes
+.h5 {
+  font-size  : 14px;
+  color      : @fontColor;
+  line-height: 20px;
+  font-weight: bold;
+}
+.h4 {
+  font-size  : 17.5px;
+  color      : @fontColor;
+  line-height: 20px;
+  font-weight: bold;
+}
+.h3 {
+  font-size  : 24.5px;
+  color      : @fontColor;
+  line-height: 40px;
+  font-weight: bold;
+}
+
+/* tags in thumbnails */
+// mixin to create border / link hovers
+.tagColors(@backgroundColor, @textColor) {
+  font-size       : 12px;
+  //background-color: @backgroundColor;
+  //border-color    : darken(spin(@backgroundColor, -10), 70%);
+  color           : @textColor;
+  text-decoration : underline;
+  &:hover {
+    color: darken(@textColor, 10%);
+    background-color: darken(@backgroundColor, 10%);
+  //  text-decoration : underline;
+  }
+}
+
+@tagOnBackground: @successBackground;
+@tagOnText:       @successText;
+.tag-on { .tagColors(@tagOnBackground, @tagOnText) }
+
+//@tagOffBackground: darken(@white, 10%);
+@tagOffBackground: @white;
+@tagOffText:       grey;
+.tag-off { .tagColors(@tagOffBackground, @tagOffText) }
+
+// google maps
+#map_canvas {
+  .info-window {
+    width: 260px;
+    height: 270px;
+    .well {
+      img.main {
+        width: 220px;
+        height: 136px;
+      }
+    }
+  }
+}
+
+.row.home-row {
+  margin-top   : 50px;
+  margin-bottom: 50px;
+  .cta-text {
+    margin-left : 2%;
+    margin-right: 2%;
+    @media (min-width: 768px) {  // not phone
+      margin-top: 5%;
+    }
+  }
+  .cta-button {
+    margin-left: 10%;
+    margin-top : 10px;
+  }
+}
+
+// Space out series of button groups even further (5px in bootstrap)
+.btn-group + .btn-group {
+  margin-left: 40px;
+}
+
+.teal-background {
+  background-color: lighten(@primaryColor, 20%);
+}
+
+a.no-effects {
+  color: @fontColor;
+  &:hover {
+    color          : @fontColor;
+    text-decoration: none;
+  }
+}
+
+.entity-endorse-review-well {
+  padding: 10px 4px 10px 4px;
+  .entity-endorse-span {
+    @media (min-width: 768px) and (max-width: 979px) {  // tablet
+      margin-left: 25px;
+    }
+    @media (min-width: 980px) and (max-width: 1199px) { // desktop
+      margin-left: 25px;
+    }
+    @media (min-width: 1200px) {                        // max desktop
+      margin-left: 35px;
+    }
+  }
+  .entity-review-span {
+    margin-left: 5px;
+  }
 }
