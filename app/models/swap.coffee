@@ -1,7 +1,9 @@
 App.Swap = DS.Model.extend
-  _id   : DS.attr 'string'
-  ctime : DS.attr 'date'
-  title : DS.attr 'string'
+  _id  : DS.attr 'string'
+  user : DS.belongsTo 'App.User'
+  entity: DS.belongsTo 'App.Entity'
+  ctime: DS.attr 'date'
+  title: DS.attr 'string'
 
   image_big: DS.attr 'string'
   image_huge: DS.attr 'string'

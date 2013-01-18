@@ -1,5 +1,6 @@
 App.Entity = DS.Model.extend
   _id   : DS.attr 'string'
+  user  : DS.belongsTo 'App.User'
   ctime : DS.attr 'date'
   title : DS.attr 'string'
 
