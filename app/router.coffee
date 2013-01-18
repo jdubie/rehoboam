@@ -8,12 +8,17 @@ debug = require('debug') 'DEBUG router'
 
 App.Router.map (match) ->
   match('/').to('home')
+  match('/explore').to('explore')
   match('/swaps').to('swaps')
   match('/swaps/:swap_id').to('swap')
   match('/entities').to('entities')
   match('/entities/:entity_id').to('entity')
 
 App.HomeRoute = Em.Route.extend {}
+
+App.ExploreRoute = Em.Route.extend
+  setupControllers: (controller) ->
+    controller.set('content', App.store.findAll(App.Swap))
 
 App.SwapsRoute = Em.Route.extend
   setupControllers: (controller) ->

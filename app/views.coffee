@@ -12,6 +12,9 @@ App.HomeView = Em.View.extend
   testFoo: (a,b) ->
     this.get('controller').set('link', a.context)
 
+App.ExploreView = Em.View.extend
+  templateName: require 'templates/explore'
+
 App.SwapView = Em.View.extend
   templateName: require 'templates/swap'
 
