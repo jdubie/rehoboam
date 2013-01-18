@@ -1,0 +1,13 @@
+<h3>
+  What kind of companies are you looking for?
+  Vouch for the ones you respect.
+</h3>
+{{#each row in rows}}
+<div class="row">
+  {{#each row}}
+  <div class="span4">
+    {{view App.EntityThumbnailView}}
+  </div>
+  {{/each}}
+</div>
+{{/each}}

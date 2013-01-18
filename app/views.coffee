@@ -21,5 +21,14 @@ App.SwapsView = Em.View.extend
 App.SwapThumbnailView = Em.View.extend
   templateName: require 'templates/swap_thumbnail'
 
+App.EntitiesView = Em.View.extend
+  templateName: require 'templates/entities'
+
+App.EntityThumbnailView = Em.View.extend
+  templateName: require 'templates/entity_thumbnail'
+
+App.EntityView = Em.View.extend
+  templateName: require 'templates/entity'
+
 App.NavbarView = Em.View.extend
   templateName: require 'templates/navbar'

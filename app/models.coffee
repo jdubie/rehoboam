@@ -3,3 +3,4 @@
 #################################################
 
 require 'models/swap'
+require 'models/entity'
