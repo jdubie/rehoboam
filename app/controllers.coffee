@@ -9,7 +9,7 @@ App.ProfileController = Em.ObjectController.extend
   content: null
 
 App.SwapsController = Em.ArrayController.extend
-  rows: (() ->
+  rows: Ember.computed ->
     rows = []
     numPerRow = 3
     @forEach (swap, index, obj) ->
@@ -18,7 +18,7 @@ App.SwapsController = Em.ArrayController.extend
         rows.push []
       rows[rows.length-1].push swap
     rows
-  ).property('content.@each')
+  .property('content.@each.didLoad')
 
 App.SwapController = Em.ObjectController.extend
   content: null

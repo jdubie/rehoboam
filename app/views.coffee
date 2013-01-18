@@ -13,10 +13,10 @@ App.HomeView = Em.View.extend
     this.get('controller').set('link', a.context)
 
 App.SwapView = Em.View.extend
-  templateName: require('templates/swap')
+  templateName: require 'templates/swap'
 
 App.SwapsView = Em.View.extend
-  templateName: require('templates/swaps')
+  templateName: require 'templates/swaps'
 
 App.SwapThumbnailView = Em.View.extend
   templateName: require 'templates/swap_thumbnail'
