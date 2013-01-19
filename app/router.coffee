@@ -1,42 +1,28 @@
 App = require 'app'
 debug = require('debug') 'DEBUG router'
 
-#App.Route = Em.Router.extend
-#  rootUrl: '/'
-#  enableLogging: true
-#  location: 'history'
-
 App.Router.map (match) ->
-  match('/').to('home')
-  match('/explore').to('explore')
-  match('/swaps').to('swaps')
-  match('/swaps/:swap_id').to('swap')
-  match('/entities').to('entities')
-  match('/entities/:entity_id').to('entity')
-  match('/profile').to('profile')
+  @route 'explore'
+  @resource 'swaps'
+  @resource 'swap', path: '/swaps/:swap_id'
+  @resource 'entities'
+  @resource 'entity', path: '/entities/:entity_id'
+  @route 'profile'
 
-App.HomeRoute = Em.Route.extend {}
+#App.IndexRoute = Em.Route.extend {}
 
 App.ExploreRoute = Em.Route.extend
-  setupControllers: (controller) ->
-    controller.set('content', App.store.findAll(App.Swap))
+  model: -> App.Swap.find()
 
 App.SwapsRoute = Em.Route.extend
-  setupControllers: (controller) ->
-    controller.set('content', App.store.findAll(App.Swap))
+  model: -> App.Swap.find()
 
-App.SwapRoute = Em.Route.extend
-  setupControllers: (controller, swap) ->
-    controller.set('content', swap)
+#App.SwapRoute = Em.Route.extend {}
 
 App.EntitiesRoute = Em.Route.extend
-  setupControllers: (controller) ->
-    controller.set('content', App.store.findAll(App.Entity))
+  model: -> App.Entity.find()
 
-App.EntityRoute = Em.Route.extend
-  setupControllers: (controller, entity) ->
-    controller.set('content', entity)
+#App.EntityRoute = Em.Route.extend {}
 
-App.ProfileRoute = Em.Route.extend {}
-  setupControllers: (controller) ->
-    controller.set 'content', App.auth.get('user')
+App.ProfileRoute = Em.Route.extend
+  model: -> App.auth.get 'user'

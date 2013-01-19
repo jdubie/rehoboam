@@ -18,7 +18,3 @@ App.User = App.ImageModel.extend
     else
       last
   .property 'first_name', 'last_name'
-
-# TODO: HACK!! to prevent "GET /model)s"
-#       https://github.com/emberjs/data/issues/355
-App.User.toString = -> ".User"

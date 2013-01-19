@@ -7,7 +7,3 @@ App.Entity = App.ImageModel.extend
   didLoad  : -> console.log "didLoad Entity:"  , @get('title')
   didUpdate: -> console.log "didUpdate Entity:", @get('title')
   didCreate: -> console.log "didCreate Entity:", @get('title')
-
-# TODO: HACK!! to prevent "GET /model)s"
-#       https://github.com/emberjs/data/issues/355
-App.Entity.toString = -> ".Entity"

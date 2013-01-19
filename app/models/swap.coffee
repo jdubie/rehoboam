@@ -8,7 +8,3 @@ App.Swap = App.ImageModel.extend
   didLoad  : -> console.log "didLoad Swap:"  , @get('title')
   didUpdate: -> console.log "didUpdate Swap:", @get('title')
   didCreate: -> console.log "didCreate Swap:", @get('title')
-
-# TODO: HACK!! to prevent "GET /model)s"
-#       https://github.com/emberjs/data/issues/355
-App.Swap.toString = -> ".Swap"
