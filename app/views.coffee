@@ -35,3 +35,6 @@ App.EntityView = Em.View.extend
 
 App.NavbarView = Em.View.extend
   templateName: require 'templates/navbar'
+
+App.ProfileView = Em.View.extend
+  templateName: require 'templates/profile'

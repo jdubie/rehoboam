@@ -9,7 +9,7 @@
       {{#linkTo "home" class="brand"}}
         <img src="/img/logo-small.png"></img>
       {{/linkTo}}
-      <div id="navbar" class="nav-collapse">
+      <div class="nav-collapse">
         <ul class="nav nav-spaced host-explore">
           <li>
             {{#linkTo "explore"}}
@@ -29,9 +29,13 @@
               <input type="text" class="span2" placeholder="Search" name="query"></input>
             </li>
           </ul>
-          <ul class="nav">
+          <ul class="nav current-user">
             {{#if App.auth.isLoggedIn}}
-            <li><h4>Hi {{App.auth.user.first_name}}!</h4></li>
+            <li>
+              {{#linkTo "profile"}}
+                <h4>Hi {{App.auth.user.first_name}}!</h4>
+              {{/linkTo}}
+            </li>
             {{else}}
               <li><h4>Login</h4></li>
               <li class="divider-vertical"></li>

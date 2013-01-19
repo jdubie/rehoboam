@@ -13,6 +13,7 @@ App.Router.map (match) ->
   match('/swaps/:swap_id').to('swap')
   match('/entities').to('entities')
   match('/entities/:entity_id').to('entity')
+  match('/profile').to('profile')
 
 App.HomeRoute = Em.Route.extend {}
 
@@ -36,3 +37,6 @@ App.EntityRoute = Em.Route.extend
   setupControllers: (controller, entity) ->
     controller.set('content', entity)
 
+App.ProfileRoute = Em.Route.extend {}
+  setupControllers: (controller) ->
+    controller.set 'content', App.auth.get('user')

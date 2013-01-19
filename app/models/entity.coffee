@@ -1,13 +1,8 @@
-App.Entity = DS.Model.extend
+App.Entity = App.ImageModel.extend
   _id   : DS.attr 'string'
   user  : DS.belongsTo 'App.User'
   ctime : DS.attr 'date'
   title : DS.attr 'string'
-
-  image_big: DS.attr 'string'
-  image_huge: DS.attr 'string'
-  image_medium: DS.attr 'string'
-  image_thumbnail: DS.attr 'string'
 
   didLoad  : -> console.log "didLoad Entity:"  , @get('title')
   didUpdate: -> console.log "didUpdate Entity:", @get('title')
