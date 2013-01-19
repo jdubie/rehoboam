@@ -27,9 +27,9 @@ App.Auth = DS.Model.extend
     'constable' in roles
   .property 'roles'
 
-  didLoad  : -> console.log "didLoad Auth:"  , @get('user')
-  didUpdate: -> console.log "didUpdate Auth:", @get('user')
-  didCreate: -> console.log "didCreate Auth:", @get('user')
+  didLoad  : -> console.log "didLoad Auth:"  , @get('user').id
+  didUpdate: -> console.log "didUpdate Auth:", @get('user').id
+  didCreate: -> console.log "didCreate Auth:", @get('user').id
 
 # TODO: HACK!! to prevent "GET /model)s"
 #       https://github.com/emberjs/data/issues/355
