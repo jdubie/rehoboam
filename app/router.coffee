@@ -9,7 +9,8 @@ App.Router.map (match) ->
   @resource 'entity', path: '/entities/:entity_id'
   @route 'profile'
 
-#App.IndexRoute = Em.Route.extend {}
+App.IndexRoute = Em.Route.extend
+  model: -> App.Verse.find()
 
 App.ExploreRoute = Em.Route.extend
   model: -> App.Swap.find()

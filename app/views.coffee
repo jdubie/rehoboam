@@ -6,9 +6,7 @@ App.ApplicationView = Em.View.extend
   didInsertElement: -> @$().hide().fadeIn('slow')
   templateName: require 'templates/application'
 
-App.IndexView = Em.View.extend
-  didInsertElement: -> @$().hide().fadeIn('slow')
-  templateName: require 'templates/index'
+require 'views/index'
 
 App.ExploreView = Em.View.extend
   templateName: require 'templates/explore'

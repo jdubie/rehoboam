@@ -11,7 +11,7 @@ App.store = DS.Store.create
       auth: 'auth'
       entity: 'entities'
     serializer: DS.JSONSerializer.extend
-      primaryKey: (type) -> '_id'
+      primaryKey: (type) -> 'id'
 
 # https://github.com/emberjs/data/issues/504
 #App.store.adapter.serializer.map 'App.Post', user: {embedded: 'load'}, link: {embedded: 'load'}

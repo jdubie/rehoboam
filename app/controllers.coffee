@@ -5,6 +5,14 @@
 App.ApplicationController = Em.Controller.extend
   currentUser: null
 
+App.IndexController = Em.ObjectController.extend
+  content: null
+  q: (() ->
+    query = App.store.findQuery(App.Verse, q: @get('query'))
+    @set('content', query)
+  ).observes('query')
+  query: ''
+
 App.ProfileController = Em.ObjectController.extend
   content: null
 
